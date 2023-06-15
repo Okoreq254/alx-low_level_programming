@@ -1,9 +1,10 @@
 #include <stdio.h>
 
-int main() {
+int main(void) {
 /* Print the desired output using the puts function */
-puts("\"Programming is like building a multilingual puzzle");
+        puts("\"Programming is like building a multilingual puzzle");
 
 /* Return 0 to show successful execution */
-return 0;
+       
+       	return(0);
 }
