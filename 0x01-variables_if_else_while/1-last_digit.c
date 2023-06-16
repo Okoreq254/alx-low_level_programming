@@ -1,10 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+
 /**
  * main - It prints the last digit of a number that is randomly generated
  *
- * whether the number is greater than 5, less than 6 or equal to 0
+ * Whether the number is greater than 5, less than 6, or equal to 0
  *
  * Return: Always 0 (success)
 */
@@ -17,15 +18,15 @@ int main(void)
 
 	if ((n % 10) > 5)
 	{
-		printf("Last digit of %d is %d and the digit is greater than 5\n", n % 10);
+		printf("Last digit is greater than 5: %d\n", n % 10);
 	}
 	else if ((n % 10) < 6 && (n % 10) != 0
 	{
-		printf("Last digit of %d is %d and the digit is less than 6\n", n % 10);
+		printf("Last digit is less than 6: %d\n", n % 10);
 	}
-	else 
+	else
 	{
-		printf("Last digit of %d is %d and the digit is 0\n", n % 10);
+		printf("Last digit is 0: %d\n", n % 10);
 	}
 	return (0);
 }
