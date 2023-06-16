@@ -20,7 +20,7 @@ int main(void)
 	{
 		printf("Last digit is greater than 5: %d\n", n % 10);
 	}
-	else if ((n % 10) < 6 && (n % 10) != 0
+	else if ((n % 10) < 6 && (n % 10) != 0)
 	{
 		printf("Last digit is less than 6: %d\n", n % 10);
 	}
