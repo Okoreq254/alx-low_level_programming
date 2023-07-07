@@ -16,17 +16,17 @@ int _isnumber(char *s)
 
 	i = 0, d = 0, check = 1;
 	if (*s == '-')
-	i++;
+		i++;
 	for (; *(s + i) != 0; i++)
 	{
-	d = isdigit(*(s + i));
+		d = isdigit(*(s + i));
 	if (d == 0)
 	{
-	check = 0;
-	break;
+		check = 0;
+		break;
 	}
 	}
-	return (check);
+		return (check);
 }
 /**
  *main - Entry point
@@ -50,8 +50,8 @@ int main(int argc, char **argv)
 	{
 	while (cents != 0)
 	{
-																																						d = cents / c[j];
-																																						if (d == 0)
+	d = cents / c[j];
+	if (d == 0)
 	{
 	j++;
 	}
