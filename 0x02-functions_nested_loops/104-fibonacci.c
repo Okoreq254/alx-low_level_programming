@@ -21,10 +21,16 @@ int main(void)
 		prev = curr;
 		curr = next;
 
-		if (curr >= 100)
+		if (curr >= 1000000)
 			printf("%lu", curr);
-		else
+		else if (curr >= 10000)
 			printf("0%lu", curr);
+		else if (curr >= 100)
+			printf("00%lu", curr);
+		else if (curr >= 10)
+			printf("000%lu", curr);
+		else
+			printf("0000%lu", curr);
 
 		if (i != limit)
 			printf(", ");
