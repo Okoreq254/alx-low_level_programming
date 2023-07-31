@@ -11,7 +11,7 @@ int main(void)
 {
 	unsigned long int prev = 1, curr = 2, next;
 	unsigned long int limit = 96;
-	int i;
+	unsigned long int i;
 
 	printf("%lu, %lu, ", prev, curr);
 
