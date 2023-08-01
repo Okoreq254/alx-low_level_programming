@@ -1,43 +1,69 @@
 #include "lists.h"
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- * delete_nodeint_at_index - deletes the node at a
- * given index in a listint_t linked list.
- * @head: pointer to pointer to head of singly linked list
- * @index: index of the node to be deleted
+ * listint_len -  returns the number of elements in a linked listint_t list
+ * @h: head pointer of singly linked list
+ *
+ * Return: Number of elements in list
+ */
+
+size_t listint_len(const listint_t *h)
+{
+	unsigned int size = 0;
+
+	while (h != 0)
+		h = h->next, size++;
+
+	return (size);
+}
+
+/**
+ * delete_nodeint_at_index - deletes the node at index index of
+ * a listint_t linked list
+ * @head: pointer to head of singly linked list
+ * @index: index of the list where we want to delete a node
  *
  * Return: 1 if it succeeded, -1 if it failed
  */
 
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	if (head == NULL || *head == NULL)
+	unsigned int len = listint_len(*head), count = 0;
+	listint_t *tmp1, *tmp2, *tmp3;
+
+	if (*head == 0)
 		return (-1);
 
-	listint_t *current = *head;
-	listint_t *prev = NULL;
-	unsigned int count = 0;
-
-	if (index == 0)
+	if (len == 1 && index == 0)
 	{
-		*head = (*head)->next;
-		free(current);
+		free(*head);
+		*head = 0;
 		return (1);
 	}
-	while (current != NULL)
-	{
-		if (count == index)
-		{
-			prev->next = current->next;
-			free(current);
-			return (1);
-		}
 
-		prev = current;
-		current = current->next;
+	if (index > len - 1)
+		return (-1);
+
+	tmp1 = *head;
+	while (count < index && index != 0)
+	{
+		tmp2 = tmp1;
+		tmp1 = tmp1->next;
+		tmp3 = tmp1->next;
 		count++;
 	}
-	return (-1);
+	if (index == 0)
+	{
+		*head = tmp1->next;
+		free(tmp1);
+	}
+	else
+	{
+		tmp2->next = tmp3;
+		free(tmp1);
+	}
+	return (1);
 }
