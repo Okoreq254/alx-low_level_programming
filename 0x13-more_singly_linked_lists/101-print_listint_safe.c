@@ -3,37 +3,24 @@
 #include <stdlib.h>
 
 /**
- * print_listint_safe - prints a singly linked list
- * @head: head pointer of singly linked list
+ * add_nodeint - adds a new node at the
+ * beginning of a singly linked list
+ * @head: pointer to head of singly linked list
+ * @n: number to add as new node in the list
  *
- * Return: Number of elements in list
+ * Return: the address of the new element, or NULL if it failed
  */
 
-size_t print_listint_safe(const listint_t *head)
+listint_t *add_nodeint(listint_t **head, const int n)
 {
-	const listint_t *tmp, *tmp2;
-	unsigned int count = 0;
+	listint_t *new_node = malloc(sizeof(listint_t));
 
-	tmp = head;
-	if (tmp == NULL)
-		return (0);
+	if (new_node == NULL)
+		return (NULL);
 
-	while (tmp != NULL)
-	{
-		tmp2 = tmp;
-		tmp = tmp->next;
+	new_node->n = n;
+	new_node->next = *head;
+	*head = new_node;
 
-		count++;
-
-		printf("[%p] %d\n", (void *)tmp2, tmp2->n);
-
-		if (tmp2 <= tmp)
-		{
-			if (tmp != NULL)
-				printf("-> [%p] %d\n", (void *)tmp, tmp->n);
-			break;
-		}
-	}
-
-	return (count);
+	return (new_node);
 }
